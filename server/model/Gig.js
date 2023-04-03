@@ -65,5 +65,5 @@ const GigSchmema = new mongoose.Schema({
 }, { timestamps: true })
 
 
-const Gig= mongoose.model('Gig',GigSchmema);
+const Gig = mongoose.model('Gig',GigSchmema);
 export default Gig
