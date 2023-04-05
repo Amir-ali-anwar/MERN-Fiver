@@ -5,14 +5,14 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   const isActive = () => {
-    window.screenY > 0 ? setActive(true) : setActive(fasle);
+    window.scrollY > 0 ? setActive(true) : setActive(fasle);
   }
   useEffect(() => {
     window.addEventListener('scroll', isActive)
     return () => {
       window.removeEventListener('scroll', isActive)
     }
-  }, [active])
+  }, [])
   const currentUser = {
     id: 1,
     username: 'Amir Ali Anwar',
@@ -35,9 +35,12 @@ const Navbar = () => {
           {
            currentUser && (
             <div className="user" onClick={()=>setOpen(!open)}>
-              <img src="" alt="" />
+            <img
+                src="https://images.pexels.com/photos/1115697/pexels-photo-1115697.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt=""
+              />
               <span>{currentUser?.username}</span>
-              <div className="options">
+             {open && <div className="options">
                 {
                  currentUser?.isSeller  && (
                   <>
@@ -48,7 +51,7 @@ const Navbar = () => {
                  <span>Orders</span>
                  <span>Messages</span>
                  <span>Logout</span>
-              </div>
+              </div>}
              </div> 
            ) 
           }
