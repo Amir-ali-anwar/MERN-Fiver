@@ -2,6 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import morgan from 'morgan'
+import connectDB from './db/connect.js'
 import "express-async-errors";
 dotenv.config();
 
@@ -15,7 +17,7 @@ app.get("/", (req, res) => {
     res.json({ msg: "hahaha" });
 });
 // middlewares
-app.use(notFoundMiddleware);
+// app.use(notFoundMiddleware);
 
 const PORT = process.env.port || 4000;
 const start = async () => {
