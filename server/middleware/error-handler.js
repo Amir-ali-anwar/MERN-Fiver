@@ -1,6 +1,7 @@
 import CustomAPIError from "../errors/CustomAPIError.js";
 import StatusCodes from "http-status-codes";
 const errorHandler = (err, req, res, next) => {
+  console.log(err);
   const customError = {
     statusCode: err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR,
     msg: err.message || "Something went wrong",
@@ -10,10 +11,10 @@ const errorHandler = (err, req, res, next) => {
       err.keyValue
     )} Please entered anoter value`;
   }
-  if (err.name === 'ValidationError') {
-    customError.msg = Object.values(err.errors).map((item) => item.message.join(',')),
-    customError.statusCode = 400
-  }
+  // if (err.name === 'ValidationError') {
+  //   customError.msg = Object.values(err?.errors).map((item) => item.message.join(',')),
+  //   customError.statusCode = 400
+  // }
   if (err.name === 'CastError') {
     customError.msg = `No item found with the ${err.value}`
     customError.statusCode = 400

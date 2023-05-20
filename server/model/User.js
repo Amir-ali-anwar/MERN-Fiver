@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import jwt from 'jsonwebtoken'
+import validator from 'validator'
 import {BadRequestError} from '../errors/index.js'
 const UserSchema= new mongoose.Schema({
     username:{
@@ -8,7 +9,13 @@ const UserSchema= new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true,
+        required: [true, "Please enter your Name"],
+        validate:{
+          validator:validator.isEmail,
+          message:'Please provide valid email'
+      },
+        minlength: 3,
+        maxlength: 20,
         unique: true,
       },
       password: {
