@@ -9,12 +9,12 @@ import connectDB from './db/connect.js'
 import "express-async-errors";
 // importing Routes
 import authRoutes from './routes/authRoutes.js'
-import conversationRoutes from './routes/conversationRoutes.js'
-import gitRoutes from './routes/gigRoutes.js'
-import messageRoutes from './routes/messageRoute.js'
-import orderRoutes from './routes/orderRoute.js'
-import reviewRoutes from './routes/reviewRoute.js'
-import userRoutes from './routes/userRoute.js'
+// import conversationRoutes from './routes/conversationRoutes.js'
+// import gitRoutes from './routes/gigRoutes.js'
+// import messageRoutes from './routes/messageRoute.js'
+// import orderRoutes from './routes/orderRoute.js'
+// import reviewRoutes from './routes/reviewRoute.js'
+// import userRoutes from './routes/userRoute.js'
 dotenv.config();
 
 const app = express();
@@ -32,12 +32,12 @@ app.get("/", (req, res) => {
 // routes
 
 app.use("/api/v1/auth", authRoutes);
-app.use("/api/v1/conversations", conversationRoutes)
-app.use("/api/v1/gigs", gitRoutes)
-app.use("/api/v1/messages", messageRoutes)
-app.use("/api/v1/orders", orderRoutes)
-app.use("/api/v1/reviews", reviewRoutes)
-app.use("/api/v1/users", userRoutes)
+// app.use("/api/v1/conversations", conversationRoutes)
+// app.use("/api/v1/gigs", gitRoutes)
+// app.use("/api/v1/messages", messageRoutes)
+// app.use("/api/v1/orders", orderRoutes)
+// app.use("/api/v1/reviews", reviewRoutes)
+// app.use("/api/v1/users", userRoutes)
 
 // middlewares
 app.use(notFoundMiddleware);

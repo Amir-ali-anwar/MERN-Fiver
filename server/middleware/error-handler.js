@@ -1,4 +1,4 @@
-import CustomAPIError from "../error/CustomAPIError.js";
+import CustomAPIError from "../errors/CustomAPIError.js";
 import StatusCodes from "http-status-codes";
 const errorHandler = (err, req, res, next) => {
   const customError = {

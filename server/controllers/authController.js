@@ -1,9 +1,10 @@
 import User from '../model/User.js'
 import StatusCodes from 'http-status-codes'
+import {BadRequestError} from '../errors/index.js'
 const register = async (req, res, next) => {
   const { username, email, password,country } = req.body
   if (!username || !email || !password) {
-    console.log("please provide all the values");
+    throw new BadRequestError("Please Provide Username,Email,Password")
   }
   const user = await User.create({ username, email, password,country})
   res.status(StatusCodes.CREATED).json(user)
