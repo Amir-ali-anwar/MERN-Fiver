@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import notFoundMiddleware from "./middleware/not-found.js";
 import cors from "cors";
 import morgan from 'morgan'
 import connectDB from './db/connect.js'
@@ -23,7 +24,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1/auth", authRoutes);
 // middlewares
-// app.use(notFoundMiddleware);
+app.use(notFoundMiddleware);
 
 const PORT = process.env.port || 5000;
 const start = async () => {
