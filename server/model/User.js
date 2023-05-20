@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import jwt from 'jsonwebtoken'
 import validator from 'validator'
+import bcrypt from 'bcryptjs'
 import {BadRequestError} from '../errors/index.js'
 const UserSchema= new mongoose.Schema({
     username:{

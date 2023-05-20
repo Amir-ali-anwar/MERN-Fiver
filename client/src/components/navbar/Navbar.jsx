@@ -32,16 +32,16 @@ function Navbar() {
       <div className="container">
         <div className="logo">
           <Link className="link" to="/">
-            <span className="text">liverr</span>
+            <span className="text">fiverr</span>
           </Link>
           <span className="dot">.</span>
         </div>
         <div className="links">
-          <span>Liverr Business</span>
+          <span>Fiverr Business</span>
           <span>Explore</span>
           <span>English</span>
           {!currentUser?.isSeller && <span>Become a Seller</span>}
-          {currentUser ? (
+          {/* {currentUser ? ( */}
             <div className="user" onClick={()=>setOpen(!open)}>
               <img
                 src="https://images.pexels.com/photos/1115697/pexels-photo-1115697.jpeg?auto=compress&cs=tinysrgb&w=1600"
@@ -70,14 +70,14 @@ function Navbar() {
                 </Link>
               </div>}
             </div>
-          ) : (
+          {/* ) : ( */}
             <>
               <span>Sign in</span>
               <Link className="link" to="/register">
                 <button>Join</button>
               </Link>
             </>
-          )}
+          {/* )} */}
         </div>
       </div>
       {(active || pathname !== "/") && (

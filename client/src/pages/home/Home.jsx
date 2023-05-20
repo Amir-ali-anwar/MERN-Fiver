@@ -174,7 +174,7 @@ function Home() {
               <img src="./img/check.png" alt="" />
               Manage teamwork and boost productivity with one powerful workspace
             </div>
-            <button>Explore Liverr Business</button>
+            <button>Explore Fiverr Business</button>
           </div>
           <div className="item">
             <img
