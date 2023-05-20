@@ -7,7 +7,8 @@ const register = async (req, res, next) => {
     throw new BadRequestError("Please Provide Username,Email,Password")
   }
   const user = await User.create({ username, email, password,country})
-  res.status(StatusCodes.CREATED).json(user)
+  const token= await user.CreateJWT()
+  res.status(StatusCodes.CREATED).json({user,token})
 };
 const login = async (req, res, next) => {
   res.send("login");

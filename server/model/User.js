@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-
+import jwt from 'jsonwebtoken'
+import {BadRequestError} from '../errors/index.js'
 const UserSchema= new mongoose.Schema({
     username:{
     type:String,
@@ -36,5 +37,20 @@ const UserSchema= new mongoose.Schema({
       },
 },{timestamps:true})
 
+UserSchema.methods.CreateJWT= async function(){
+  try {
+    const payload = {
+      UserID: this._id,
+      Username: this.name,
+    };
+    const token = await jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: process.env.JWT_LIFETIME,
+    }); 
+    return token;
+  } catch (error) {
+    throw new BadRequestError(error)
+  }
+}
 const User= mongoose.model('User',UserSchema)
+
 export default User
