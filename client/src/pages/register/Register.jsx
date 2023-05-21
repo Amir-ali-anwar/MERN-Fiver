@@ -10,7 +10,7 @@ function Register() {
           <h1>Create a new account</h1>
           <FormRow type="text" name="username" labelText="Username" />
           <FormRow type="email" name="email" labelText="Email" />
-          <FormRow type="password" name="Password" labelText="Email" />
+          <FormRow type="password" name="Password" labelText="Password" />
           <FormRow type="file" labelText="Profile Picture" />
           <FormRow type="text" name="country" labelText="Country" />
           <button type="submit">Register</button>
